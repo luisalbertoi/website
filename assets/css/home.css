@@ -1,0 +1,407 @@
+/* wrapper intro */
+
+.top {
+  width   : 100%;
+  display : flex;
+  position: relative;
+}
+
+.content {
+  width: 60%;
+}
+
+.picture {
+  width          : 40%;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  min-height     : 100vh;
+  max-height     : 100vh;
+  position       : sticky;
+  right          : 0;
+  top            : 0;
+}
+
+.picture .figure {
+  padding    : 12px;
+  width      : 320px;
+  height     : 420px;
+  overflow   : hidden;
+  position   : relative;
+  line-height: 0;
+}
+
+.picture .figure::after,
+.picture .figure::before {
+  content   : '';
+  width     : 40%;
+  height    : 40%;
+  position  : absolute;
+  transition: all 0.25s;
+}
+
+.picture .figure::after {
+  border-bottom: 2px solid var(--primary);
+  border-right : 2px solid var(--primary);
+  bottom       : 0;
+  right        : 0;
+}
+
+.picture .figure::before {
+  border-left: 2px solid var(--primary);
+  border-top : 2px solid var(--primary);
+  left       : 0;
+  top        : 0;
+}
+
+.picture .figure:hover::after,
+.picture .figure:hover::before {
+  width : 100%;
+  height: 100%;
+}
+
+.picture img {
+  width        : 100%;
+  height       : 100%;
+  object-fit   : cover;
+  border-radius: 4px;
+}
+
+/* intro styles */
+
+@keyframes hello {
+  0% {
+    opacity  : 0;
+    transform: translateX(60px);
+  }
+
+  100% {
+    opacity  : 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes descrip {
+  0% {
+    opacity  : 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity  : 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes button {
+  0% {
+    transform: scale(0);
+  }
+
+  45% {
+    transform: scale(1.2);
+  }
+
+  75% {
+    transform: scale(0.95);
+
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.intro {
+  display        : flex;
+  flex-direction : column;
+  justify-content: center;
+  min-height     : 100vh;
+}
+
+.intro .hello {
+  color      : var(--primary);
+  display    : flex;
+  align-items: center;
+  font-family: var(--light);
+  animation  : hello 0.5s var(--entry);
+  width      : fit-content;
+}
+
+.intro .hello::after {
+  content    : '';
+  width      : 40px;
+  margin-left: 8px;
+  border-top : 1px solid;
+}
+
+.intro .name {
+  color      : var(--text87);
+  font-size  : clamp(50px, 8vw, 90px);
+  font-family: var(--bolder);
+  line-height: 1;
+  height     : 3em;
+}
+
+.intro .name .letter {
+  display: inline-block;
+}
+
+.intro .name .space {
+  margin: 0 0 0 1.2em;
+}
+
+.intro .descrip {
+  opacity  : 0;
+  animation: descrip 0.5s var(--entry) 1.2s forwards;
+  margin   : 8px 0 1em;
+}
+
+.intro .button {
+  transform: scale(0);
+  animation: button 0.5s ease-out 1.5s forwards;
+}
+
+/* about styles */
+
+.about {
+  width          : 90%;
+  display        : flex;
+  min-height     : 100vh;
+  flex-direction : column;
+  justify-content: center;
+}
+
+.about .text {
+  text-align: justify;
+}
+
+.about .space {
+  margin: 12px 0 24px;
+}
+
+.about .list {
+  display      : grid;
+  grid-gap     : 1em 0;
+  grid-template: auto / repeat(2, 1fr);
+  padding-left : 20px;
+}
+
+.about .list li::before {
+  content    : "\2022";
+  width      : 1em;
+  color      : var(--primary);
+  display    : inline-block;
+  font-weight: bold;
+  margin-left: -1em;
+}
+
+/* proyectos styles */
+
+.projects h2::after {
+  width: 40%;
+}
+
+.projects .wrapper {
+  display      : flex;
+  flex-wrap    : wrap;
+  grid-gap     : 1em;
+  align-content: flex-start;
+}
+
+.projects .card {
+  width        : calc(30% - 1em);
+  position     : relative;
+  overflow     : hidden;
+  border-radius: 4px;
+}
+
+.card:nth-child(2n + 2),
+.card:nth-child(2n + 4) {
+  width: 40%;
+}
+
+.card:nth-child(6n + 6) {
+  width: 30%
+}
+
+.projects .card img {
+  width          : 100%;
+  height         : 100%;
+  object-fit     : cover;
+  object-position: left;
+}
+
+.projects .card .content {
+  color           : #FFFFFF;
+  width           : 100%;
+  padding         : 8px 5px;
+  position        : absolute;
+  transition      : opacity 0.25s;
+  backdrop-filter : blur(8px);
+  background-color: hsl(0, 0%, 0%, 0.6);
+  opacity         : 0;
+  bottom          : 0;
+}
+
+.projects .card:hover .content {
+  opacity: 1;
+}
+
+.projects .card .content h3 {
+  margin     : 0 0 5px;
+  font-weight: 400;
+}
+
+.projects .card .content p {
+  font-family: var(--light);
+}
+
+/* contact styles */
+
+input,
+textarea {
+  width           : 100%;
+  outline         : none;
+  border-radius   : 5px;
+  margin-bottom   : 10px;
+  background-color: var(--panel);
+  padding         : 10px 15px;
+  border          : 1px solid var(--border);
+  color           : var(--text87);
+}
+
+textarea {
+  min-width : 100%;
+  max-width : 100%;
+  min-height: 10em;
+  max-height: 20em;
+}
+
+input[type="submit"i] {
+  color     : var(--text60);
+  cursor    : pointer;
+  transition: all 0.25s;
+  background: transparent;
+  border    : 1px solid;
+  margin    : 0;
+}
+
+input[type="submit"i]:hover {
+  color: var(--primary);
+}
+
+/* footer styles */
+
+.footer {
+  display        : flex;
+  justify-content: space-between;
+  margin         : 0 auto 1em !important;
+}
+
+.footer span {
+  font-size  : 14px;
+  font-family: var(--light);
+}
+
+.footer .list {
+  display: flex;
+}
+
+.footer .list li {
+  margin        : 0 2em;
+  font-size     : 14px;
+  text-transform: uppercase;
+}
+
+.footer .list li:last-child {
+  margin-right: 0;
+}
+
+.footer .list li:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 1024px) {
+  .picture .figure {
+    position: absolute;
+    left    : 0;
+  }
+}
+
+@media (max-width: 820px) {
+  .top {
+    flex-direction: column-reverse;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .picture {
+    width          : 100%;
+    height         : 40vh;
+    padding        : 8em 0 0;
+    min-height     : initial;
+    justify-content: flex-end;
+    position       : initial;
+  }
+
+  .picture .figure {
+    width   : 240px;
+    height  : 320px;
+    position: relative;
+  }
+
+  .intro {
+    height    : 60vh;
+    min-height: initial;
+  }
+
+  .intro .hello::after {
+    width: 30px;
+  }
+
+  /* projects */
+  .projects .card {
+    width: calc(calc(100% - 1em) / 2) !important;
+  }
+
+  /* about */
+
+  .about {
+    width     : 100%;
+    min-height: initial;
+  }
+
+  /* footer */
+
+  .footer {
+    flex-direction: column-reverse;
+  }
+
+  .footer .list {
+    justify-content: space-between;
+    margin         : 0 0 1em;
+  }
+
+  .footer .list li {
+    margin: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .projects .card {
+    width: 100% !important;
+  }
+
+  .picture {
+    padding        : 3em 0 0;
+    justify-content: center;
+  }
+
+  .picture .figure {
+    width : 220px;
+    height: 240px;
+  }
+}
