@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Luis Alberto Ibañez</title>
+  <meta name="description" content="Soy un apasionado por la innovación la tecnología y la transformación digital.">
+  <meta property="og:title" content="Luis Alberto Ibañez">
+  <meta property="og:description" content="Soy un apasionado por la innovación la tecnología y la transformación digital.">
+  <meta property="og:image" content="./assets/images/image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://luisalbertoi.com/">
+  <meta name="keywords" content="Luis Alberto I, Front-end Developer">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <style type="text/css">
+    .wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0
+    }
+
+    .no-match {
+      font-size: 3em;
+      font-family: var(--bolder)
+    }
+
+    .descrip {
+      margin: 5px 0 1em
+    }
+  </style>
+</head>
+
+<body>
+  <main class="center">
+    <section class="wrapper">
+      <h2 class="no-match">404</h2>
+      <p class="descrip">la pagina que buscas no esta disponible</p>
+      <a href="http://luisalbertoi.com/" class="button">Volver al inicio</a>
+    </section>
+  </main>
+  <div class="pointer" id="pointer">
+    <div class="point"></div>
+    <div class="select"></div>
+    <div class="circle"></div>
+  </div>
+  <div class="motion" id="motion">
+  </div>
+  <script src="./assets/scripts/index.js"></script>
+  <script type="text/javascript">
+    motion(document.getElementById('motion'), 5);
+    pointer(document.getElementById('pointer'));
+  </script>
+</body>
+
+</html>
